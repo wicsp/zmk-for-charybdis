@@ -42,12 +42,12 @@
 
         QWERTY {
             bindings = <
-&kp GRAVE                &kp N1  &kp N2   &kp N3        &kp N4            &kp N5          &kp N6     &kp N7     &kp N8     &kp N9   &kp N0         &kp BACKSPACE
-&kp TAB                  &kp Q   &kp W    &kp F         &kp P             &kp B           &kp J      &kp L      &kp U      &kp Y    &kp SEMICOLON  &kp BSLH
-&mt LEFT_CONTROL ESCAPE  &kp A   &lt 4 R  &kp S         &lt 3 T           &kp G           &kp M      &kp N      &kp E      &kp I    &kp O          &kp SQT
-&kp LEFT_SHIFT           &kp Z   &kp X    &kp C         &kp D             &kp V           &kp K      &kp H      &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
-                                          &kp LEFT_WIN  &lt 1 SPACE       &mo 2           &kp DEL    &kp SPACE
-                                                        &kp LG(LEFT_ALT)  &kp LEFT_ALT    &kp ENTER
+&kp GRAVE                &kp N1  &kp N2   &kp N3        &kp N4        &kp N5    &kp N6            &kp N7     &kp N8     &kp N9   &kp N0         &kp BACKSPACE
+&kp TAB                  &kp Q   &kp W    &kp F         &kp P         &kp B     &kp J             &kp L      &kp U      &kp Y    &kp SEMICOLON  &kp MINUS
+&mt LEFT_CONTROL ESCAPE  &kp A   &lt 4 R  &kp S         &kp T         &kp G     &kp M             &kp N      &kp E      &kp I    &kp O          &kp SQT
+&kp LEFT_SHIFT           &kp Z   &kp X    &kp C         &kp D         &kp V     &kp K             &kp H      &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
+                                          &kp LEFT_WIN  &lt 1 SPACE   &mo 3     &kp LG(LEFT_ALT)  &kp SPACE
+                                                        &kp LEFT_ALT  &mo 4     &mo 2
             >;
         };
 
@@ -55,9 +55,9 @@
             bindings = <
 &kp F1     &kp F2  &kp F3  &kp F4  &kp F5  &kp F6        &kp F7     &kp F8     &kp F9            &kp F10            &kp F11        &kp F12
 &kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5        &kp N6     &kp N7     &kp N8            &kp N9             &kp N0         &kp EQUAL
-&trans     &none   &none   &none   &none   &trans        &trans     &mkp LCLK  &mkp RCLK         &trans             &kp BACKSPACE  &kp MINUS
-&trans     &trans  &trans  &trans  &trans  &none         &none      &none      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &none          &trans
-                           &trans  &trans  &To0_macro    &mkp LCLK  &mkp RCLK
+&trans     &none   &none   &none   &none   &trans        &kp LEFT   &kp DOWN   &kp UP_ARROW      &kp RIGHT          &kp BACKSPACE  &kp ENTER
+&trans     &trans  &trans  &trans  &trans  &none         &mkp LCLK  &mkp RCLK  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH  &trans
+                           &trans  &trans  &To0_macro    &trans     &trans
                                    &trans  &trans        &trans
             >;
         };
