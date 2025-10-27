@@ -46,7 +46,7 @@
 &kp TAB                  &kp Q   &kp W   &kp F         &kp P         &kp B     &kp J             &kp L        &kp U      &kp Y    &kp SEMICOLON  &kp MINUS
 &mt LEFT_CONTROL ESCAPE  &kp A   &kp R   &kp S         &kp T         &kp G     &kp M             &kp N        &kp E      &kp I    &kp O          &kp SQT
 &kp LEFT_SHIFT           &kp Z   &kp X   &kp C         &kp D         &kp V     &kp K             &kp H        &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
-                                         &kp LEFT_WIN  &lt 1 SPACE   &mo 3     &kp RG(LEFT_ALT)  &lt 1 SPACE
+                                         &kp LEFT_WIN  &lt 1 SPACE   &mo 3     &kp RG(LEFT_ALT)  &lt 1 ENTER
                                                        &kp LEFT_ALT  &mo 4     &mo 2
             >;
         };
