@@ -40,7 +40,13 @@ drive, and copy that half's UF2 file onto the drive. Use both halves from the
 same build.
 
 The ZMK core and reusable CI workflow are pinned to ZMK v0.3.0
-(`edf5c0814fd3ea202e43aad2d68fd32e882a518c`). The legacy PMW3610 driver is
-pinned to `1d9c2c68ca76012e1b1e5f6ef02fa5eadc4ca399`. Keep these versions
-compatible with the `nice_nano_v2` board definition; upgrading to newer ZMK
-requires migrating the board target and sensor driver together.
+(`edf5c0814fd3ea202e43aad2d68fd32e882a518c`). The PMW3610 driver is maintained
+locally in [drivers/pmw3610](drivers/pmw3610/README.md), based on upstream commit
+`1d9c2c68ca76012e1b1e5f6ef02fa5eadc4ca399`. It preserves small movements during
+scaling and flushes pending motion on an 8 ms report deadline, without waiting
+for a second movement. Sensor sampling and Bluetooth parameters remain the
+same. Regression tests run before firmware builds.
+
+Keep these versions compatible with the `nice_nano_v2` board definition;
+upgrading to newer ZMK requires migrating the board target and sensor driver
+together.

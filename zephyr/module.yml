@@ -1,0 +1,5 @@
+build:
+  cmake: drivers/pmw3610
+  kconfig: drivers/pmw3610/Kconfig
+  settings:
+    dts_root: drivers/pmw3610

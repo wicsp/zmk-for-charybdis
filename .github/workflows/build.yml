@@ -6,6 +6,19 @@ permissions:
   contents: read
 
 jobs:
+  motion-tests:
+    name: Test trackball motion handling
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile and run motion regression tests
+        run: |
+          cc -std=c11 -Wall -Wextra -Werror -pedantic \
+            -Idrivers/pmw3610/src tests/pmw3610_motion_test.c \
+            drivers/pmw3610/src/motion.c -o "$RUNNER_TEMP/pmw3610_motion_test"
+          "$RUNNER_TEMP/pmw3610_motion_test"
+
   build:
+    needs: motion-tests
     # ZMK v0.3.0: matches nice_nano_v2 and the legacy PMW3610 driver.
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@edf5c0814fd3ea202e43aad2d68fd32e882a518c

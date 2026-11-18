@@ -26,24 +26,24 @@ ZMK builds are triggered automatically on push/PR to generate firmware files.
   - `charybdis.zmk.yml` - Shield metadata and features
 
 ### Keymap & Configuration
-- `config/charybdis.keymap` - Main keymap with 5 layers:
+- `config/charybdis.keymap` - Main keymap with 3 layers:
   - Layer 0: QWERTY base layer with Colemak-DH layout
-  - Layer 1: Function keys and navigation (F_layers)
+  - Layer 1: Function keys, navigation and trackball scrolling (F_layers)
   - Layer 2: Bluetooth controls (BT_layers) 
-  - Layer 3: Scroll mode for trackball (scroll-layers)
-  - Layer 4: Precision/sniper mode for trackball (snipe-layers)
 - `config/charybdis.conf` - Main configuration file with battery reporting and RGB settings
 - `config/charybdis.json` - Physical layout definition for keymap editors
 
 ### Dependencies
 - `config/west.yml` defines the manifest:
-  - ZMK firmware from zmkfirmware/zmk (main branch)
-  - PMW3610 trackball driver from DoctorWangWang/zmk-pmw3610-driver (main branch)
+  - ZMK firmware and reusable build workflow pinned to v0.3.0 commit `edf5c0814fd3ea202e43aad2d68fd32e882a518c`
+- The PMW3610 driver is vendored in `drivers/pmw3610/`, based on upstream commit `1d9c2c68ca76012e1b1e5f6ef02fa5eadc4ca399`.
+- `zephyr/module.yml` loads the local driver via `ZMK_EXTRA_MODULES`; do not also load the external driver in west.
+- Motion regression tests run before firmware builds. See `drivers/pmw3610/README.md`.
 
 ### Special Features
-- **Trackball Integration**: PMW3610 sensor on right half with scroll/snipe layer functionality
+- **Trackball Integration**: PMW3610 sensor on right half, signed scaling remainders, and deadline-based software 125 Hz reporting
 - **RGB Underglow**: WS2812 LED strips (29 LEDs on left, 27 LEDs on right)  
-- **Layer-based Macros**: RGB effects tied to layer switches (To1_macro, To0_macro, To2_macro)
+- **Thumb Shortcuts**: F20 for an assistant, F19 for a second host shortcut; Ctrl/Esc asserts Ctrl immediately
 - **Bluetooth**: Multi-device pairing with BT controls on Layer 2
 
 ## Common Tasks
@@ -53,8 +53,7 @@ Edit `config/charybdis.keymap` - keymap uses standard ZMK syntax with layer defi
 
 ### Adjusting Trackball Settings
 Trackball configuration is in `config/boards/shields/charybdis/charybdis_right.overlay`:
-- `scroll-layers = <3>` - Layer 3 enables scroll mode
-- `snipe-layers = <4>` - Layer 4 enables precision mode
+- `scroll-layers = <1>` - Layer 1 enables scroll mode; no precision layer is configured
 - `spi-max-frequency = <2000000>` - SPI communication frequency
 
 ### RGB Underglow Configuration  
